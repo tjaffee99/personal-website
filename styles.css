@@ -1,0 +1,80 @@
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container to limit the width and center it on the page */
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left; /* Left-align text */
+    background: none; /* Remove background color */
+    box-shadow: none; /* Remove box shadow */
+    border-radius: 0; /* Remove border radius */
+}
+
+/* Header styling */
+header {
+    text-align: left; /* Left-align header */
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Paragraph and link styling */
+/* Headings and text spacing */
+h2 {
+    margin-top: 20px;
+    margin-bottom: 3px; /* Closer to the body text */
+}
+
+p {
+    margin: 10px 0;
+    line-height: 1.45; /* Adjust line spacing */
+    letter-spacing: 0.2px; /* Adjust letter spacing */
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation styling */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
