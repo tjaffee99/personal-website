@@ -1,0 +1,740 @@
+[
+ {
+  "iso3": "ALB",
+  "country": "Albania",
+  "tfr": 1.64,
+  "year": 2024,
+  "note": "large jump from 1.21 (2022), likely post-census population revision",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "AGO",
+  "country": "Angola",
+  "tfr": 4.8,
+  "year": 2023,
+  "note": "survey (AO2023DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2023)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=AO2023DHS&breakdown=national"
+ },
+ {
+  "iso3": "AUS",
+  "country": "Australia",
+  "tfr": 1.481,
+  "year": 2024,
+  "note": "",
+  "source": "ABS Births, Australia 2024",
+  "url": "https://www.abs.gov.au/statistics/people/population/births-australia/latest-release"
+ },
+ {
+  "iso3": "AUT",
+  "country": "Austria",
+  "tfr": 1.29,
+  "year": 2025,
+  "note": "preliminary",
+  "source": "Statistik Austria",
+  "url": "https://www.statistik.at/fileadmin/announcement/2026/02/20260225Geburtenbilanz2025.pdf"
+ },
+ {
+  "iso3": "BEL",
+  "country": "Belgium",
+  "tfr": 1.43,
+  "year": 2025,
+  "note": "",
+  "source": "Statbel (via La Libre Belgique)",
+  "url": "https://www.lalibre.be/belgique/societe/2026/06/15/lage-des-mamans-a-la-naissance-grimpe-a-315-ans-en-belgique-HJXWCHZOCZHJ5CCGM7OZHG7O6M/"
+ },
+ {
+  "iso3": "BGR",
+  "country": "Bulgaria",
+  "tfr": 1.63,
+  "year": 2025,
+  "note": "final data",
+  "source": "National Statistical Institute of Bulgaria (NSI)",
+  "url": "https://www.nsi.bg/press-release/naselenie-i-demografski-procesi-9002"
+ },
+ {
+  "iso3": "CAN",
+  "country": "Canada",
+  "tfr": 1.26,
+  "year": 2025,
+  "note": "",
+  "source": "Statistics Canada",
+  "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260923/dq260923e-eng.htm"
+ },
+ {
+  "iso3": "CHL",
+  "country": "Chile",
+  "tfr": 0.99,
+  "year": 2025,
+  "note": "provisional",
+  "source": "INE Chile Estadísticas Vitales cifras provisionales 2025",
+  "url": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/05/27/estad%C3%ADsticas-vitales-cifras-provisionales-2025-confirman-que-los-nacimientos-en-chile-disminuyeron-un-46-9-en-32-a%C3%B1os"
+ },
+ {
+  "iso3": "COL",
+  "country": "Colombia",
+  "tfr": 1.0,
+  "year": 2025,
+  "note": "preliminary; published to 1 decimal",
+  "source": "DANE (via Infobae)",
+  "url": "https://www.infobae.com/colombia/2026/09/25/colombia-registra-mas-nacimientos-en-2026-pero-la-fecundidad-toca-minimo-historico-asi-cambio-la-poblacion/"
+ },
+ {
+  "iso3": "CRI",
+  "country": "Costa Rica",
+  "tfr": 1.12,
+  "year": 2024,
+  "note": "",
+  "source": "INEC Costa Rica, Indicadores demográficos 2024",
+  "url": "https://admin.inec.cr/sites/default/files/2025-11/rePoblacEV-FID-2024A.pdf"
+ },
+ {
+  "iso3": "HRV",
+  "country": "Croatia",
+  "tfr": 1.46,
+  "year": 2024,
+  "note": "",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "CUB",
+  "country": "Cuba",
+  "tfr": 1.29,
+  "year": 2025,
+  "note": "",
+  "source": "ONEI (via OnCubaNews)",
+  "url": "https://oncubanews.com/cuba/cuba-cerro-el-2025-con-94-millones-de-habitantes-313-mil-menos-en-un-ano/"
+ },
+ {
+  "iso3": "CYP",
+  "country": "Cyprus",
+  "tfr": 1.38,
+  "year": 2024,
+  "note": "",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "CZE",
+  "country": "Czechia",
+  "tfr": 1.28,
+  "year": 2025,
+  "note": "",
+  "source": "Czech Statistical Office (CSU)",
+  "url": "https://csu.gov.cz/docs/107508/2f1a5ef7-8a51-2ed8-6e5d-f41764898536/csu_tk260331_jak_v_cesku_ubyva_narozenych_deti_prezentace.pdf"
+ },
+ {
+  "iso3": "COD",
+  "country": "DR Congo",
+  "tfr": 5.5,
+  "year": 2023,
+  "note": "survey (CD2023DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2023)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=CD2023DHS&breakdown=national"
+ },
+ {
+  "iso3": "DNK",
+  "country": "Denmark",
+  "tfr": 1.51,
+  "year": 2025,
+  "note": "1505.8 per 1,000 women",
+  "source": "Statistics Denmark (FERT1)",
+  "url": "https://www.statbank.dk/FERT1"
+ },
+ {
+  "iso3": "EGY",
+  "country": "Egypt",
+  "tfr": 2.33,
+  "year": 2025,
+  "note": "preliminary, survey (Egypt Family Health Survey 2025, CAPMAS); another report gives 2.34",
+  "source": "CAPMAS EFHS 2025 (via Ahram Online)",
+  "url": "https://english.ahram.org.eg/NewsContent/1/1236/577384/Egypt/Health/Egypt%E2%80%99s-Csection-rate-rises-to--as-fertility-decli.aspx"
+ },
+ {
+  "iso3": "EST",
+  "country": "Estonia",
+  "tfr": 1.16,
+  "year": 2025,
+  "note": "",
+  "source": "Statistics Estonia",
+  "url": "https://stat.ee/en/en/find-statistics/statistics-theme/population/births"
+ },
+ {
+  "iso3": "ETH",
+  "country": "Ethiopia",
+  "tfr": 4,
+  "year": 2024,
+  "note": "survey (ET2024DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2024)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=ET2024DHS&breakdown=national"
+ },
+ {
+  "iso3": "FIN",
+  "country": "Finland",
+  "tfr": 1.3,
+  "year": 2025,
+  "note": "preliminary",
+  "source": "Statistics Finland",
+  "url": "https://stat.fi/fi/julkaisu/cmfkupzc2jvng07w0rtr0p5xb"
+ },
+ {
+  "iso3": "FRA",
+  "country": "France",
+  "tfr": 1.56,
+  "year": 2025,
+  "note": "provisional; incl. overseas departments (metropolitan France 1.53)",
+  "source": "INSEE Bilan démographique 2025",
+  "url": "https://www.insee.fr/fr/statistiques/8719824"
+ },
+ {
+  "iso3": "GEO",
+  "country": "Georgia",
+  "tfr": 1.61,
+  "year": 2025,
+  "note": "",
+  "source": "Geostat (via Civil.ge)",
+  "url": "https://civil.ge/archives/727708"
+ },
+ {
+  "iso3": "DEU",
+  "country": "Germany",
+  "tfr": 1.32,
+  "year": 2025,
+  "note": "",
+  "source": "Destatis",
+  "url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/07/PD26_230_12.html"
+ },
+ {
+  "iso3": "GRC",
+  "country": "Greece",
+  "tfr": 1.24,
+  "year": 2024,
+  "note": "",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "HKG",
+  "country": "Hong Kong",
+  "tfr": 0.841,
+  "year": 2024,
+  "note": "",
+  "source": "Census and Statistics Department (C&SD)",
+  "url": "https://www.censtatd.gov.hk/en/chat20250625.html"
+ },
+ {
+  "iso3": "HUN",
+  "country": "Hungary",
+  "tfr": 1.31,
+  "year": 2025,
+  "note": "preliminary",
+  "source": "Hungarian Central Statistical Office (KSH) STADAT 22.1.1.6",
+  "url": "https://www.ksh.hu/stadat_files/nep/hu/nep0006.html"
+ },
+ {
+  "iso3": "ISL",
+  "country": "Iceland",
+  "tfr": 1.56,
+  "year": 2025,
+  "note": "",
+  "source": "Statistics Iceland (Hagstofa)",
+  "url": "https://hagstofa.is/utgafur/frettasafn/mannfjoldi/faedingar-2025/"
+ },
+ {
+  "iso3": "IND",
+  "country": "India",
+  "tfr": 1.9,
+  "year": 2024,
+  "note": "SRS Statistical Report 2024 (reported as 1.9; ~1.88 unrounded per press)",
+  "source": "Office of the Registrar General, Sample Registration System",
+  "url": "https://visionias.in/current-affairs/news-today/2026-05-22/society/sample-registration-system-srs-statistical-report-2024-released"
+ },
+ {
+  "iso3": "IDN",
+  "country": "Indonesia",
+  "tfr": 2.13,
+  "year": 2025,
+  "note": "survey (SUPAS 2025 intercensal survey)",
+  "source": "BPS-Statistics Indonesia",
+  "url": "https://www.bps.go.id/en/pressrelease/2026/05/05/2645/supas-2025--angka-kelahiran-total--tfr--sebesar-2-13---angka-kematian-bayi--imr--sebesar-14-12--dan-persentase-lansia-mencapai-11-97-persen-.html"
+ },
+ {
+  "iso3": "IRL",
+  "country": "Ireland",
+  "tfr": 1.5,
+  "year": 2025,
+  "note": "published to 1 decimal only",
+  "source": "CSO Ireland Vital Statistics Yearly Summary 2025",
+  "url": "https://www.cso.ie/en/releasesandpublications/ep/p-vsys/vitalstatisticsyearlysummary2025/"
+ },
+ {
+  "iso3": "ISR",
+  "country": "Israel",
+  "tfr": 2.88,
+  "year": 2025,
+  "note": "CBS figures released Sept 2026 (183,678 births)",
+  "source": "Israel CBS (via Jerusalem Post)",
+  "url": "https://www.jpost.com/israel-news/article-908103"
+ },
+ {
+  "iso3": "ITA",
+  "country": "Italy",
+  "tfr": 1.14,
+  "year": 2025,
+  "note": "provisional (Indicatori demografici)",
+  "source": "ISTAT",
+  "url": "https://www.istat.it/en/press-release/demographic-indicators-year-2025/"
+ },
+ {
+  "iso3": "JPN",
+  "country": "Japan",
+  "tfr": 1.14,
+  "year": 2025,
+  "note": "preliminary (MHLW, released 2026-06-03)",
+  "source": "MHLW Vital Statistics",
+  "url": "https://www.mhlw.go.jp/toukei/saikin/hw/jinkou/geppo/nengai25/index.html"
+ },
+ {
+  "iso3": "JOR",
+  "country": "Jordan",
+  "tfr": 2.6,
+  "year": 2023,
+  "note": "survey (JO2023DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2023)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=JO2023DHS&breakdown=national"
+ },
+ {
+  "iso3": "KAZ",
+  "country": "Kazakhstan",
+  "tfr": 2.57,
+  "year": 2025,
+  "note": "Bureau of National Statistics data as reported by ENPF",
+  "source": "Bureau of National Statistics (via ENPF demographic portrait)",
+  "url": "https://www.enpf.kz/ru/press-center/news/282542/"
+ },
+ {
+  "iso3": "LVA",
+  "country": "Latvia",
+  "tfr": 1.24,
+  "year": 2024,
+  "note": "",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "LSO",
+  "country": "Lesotho",
+  "tfr": 2.5,
+  "year": 2023,
+  "note": "survey (LS2023DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2023)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=LS2023DHS&breakdown=national"
+ },
+ {
+  "iso3": "LIE",
+  "country": "Liechtenstein",
+  "tfr": 1.37,
+  "year": 2024,
+  "note": "",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "LTU",
+  "country": "Lithuania",
+  "tfr": 1.04,
+  "year": 2025,
+  "note": "preliminary",
+  "source": "State Data Agency of Lithuania (via LRT)",
+  "url": "https://www.lrt.lt/naujienos/lietuvoje/2/3000249/paskelbti-naujausi-gimstamumo-rodikliai-pirmauja-sostine"
+ },
+ {
+  "iso3": "LUX",
+  "country": "Luxembourg",
+  "tfr": 1.23,
+  "year": 2025,
+  "note": "",
+  "source": "STATEC",
+  "url": "https://statistiques.public.lu/fr/actualites/2026/stn15-population-2026.html"
+ },
+ {
+  "iso3": "MAC",
+  "country": "Macao",
+  "tfr": 0.47,
+  "year": 2025,
+  "note": "",
+  "source": "DSEC Macao (via Plataforma)",
+  "url": "https://www.plataformamedia.com/en/2026/03/28/macaus-fertility-rate-falls-to-new-record-low-in-2025/"
+ },
+ {
+  "iso3": "MWI",
+  "country": "Malawi",
+  "tfr": 3.7,
+  "year": 2024,
+  "note": "survey (MW2024DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2024)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=MW2024DHS&breakdown=national"
+ },
+ {
+  "iso3": "MYS",
+  "country": "Malaysia",
+  "tfr": 1.6,
+  "year": 2024,
+  "note": "published to 1 decimal",
+  "source": "DOSM Vital Statistics Malaysia",
+  "url": "https://www.dosm.gov.my/portal-main/release-content/vital-statistics-malaysia-2025"
+ },
+ {
+  "iso3": "MLI",
+  "country": "Mali",
+  "tfr": 6,
+  "year": 2023,
+  "note": "survey (ML2023DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2023)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=ML2023DHS&breakdown=national"
+ },
+ {
+  "iso3": "MLT",
+  "country": "Malta",
+  "tfr": 1.01,
+  "year": 2024,
+  "note": "",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "MEX",
+  "country": "Mexico",
+  "tfr": 1.2,
+  "year": 2024,
+  "note": "survey-based (INEGI Encuesta Intercensal 2025); 1 decimal",
+  "source": "INEGI Encuesta Intercensal 2025 (via El Imparcial)",
+  "url": "https://www.elimparcial.com/mexico/2026/09/23/el-mapa-demografico-de-mexico-cambio-pues-ahora-la-poblacion-envejece-y-tiene-menos-hijos-inegi-reporta-que-la-fecundidad-cayo-a-12-por-mujer/"
+ },
+ {
+  "iso3": "MDA",
+  "country": "Moldova",
+  "tfr": 1.78,
+  "year": 2024,
+  "note": "Eurostat estimate",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "MNE",
+  "country": "Montenegro",
+  "tfr": 1.75,
+  "year": 2024,
+  "note": "",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "MAR",
+  "country": "Morocco",
+  "tfr": 1.97,
+  "year": 2024,
+  "note": "census (RGPH 2024)",
+  "source": "HCP Morocco, RGPH 2024",
+  "url": "https://fesnews.media/294229/2024/12/17/"
+ },
+ {
+  "iso3": "NLD",
+  "country": "Netherlands",
+  "tfr": 1.42,
+  "year": 2025,
+  "note": "",
+  "source": "CBS StatLine 37201",
+  "url": "https://opendata.cbs.nl/ODataApi/odata/37201/TypedDataSet"
+ },
+ {
+  "iso3": "NZL",
+  "country": "New Zealand",
+  "tfr": 1.55,
+  "year": 2025,
+  "note": "",
+  "source": "Stats NZ",
+  "url": "https://www.stats.govt.nz/information-releases/births-and-deaths-year-ended-december-2025-including-abridged-period-life-table/"
+ },
+ {
+  "iso3": "NGA",
+  "country": "Nigeria",
+  "tfr": 4.8,
+  "year": 2024,
+  "note": "survey (2023-24 NDHS; 3-year reference period)",
+  "source": "NPC / DHS Program NDHS 2023-24",
+  "url": "https://dhsprogram.com/pubs/pdf/PR157/PR157.pdf"
+ },
+ {
+  "iso3": "MKD",
+  "country": "North Macedonia",
+  "tfr": 1.44,
+  "year": 2024,
+  "note": "",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "NOR",
+  "country": "Norway",
+  "tfr": 1.48,
+  "year": 2025,
+  "note": "",
+  "source": "Statistics Norway (SSB)",
+  "url": "https://www.ssb.no/befolkning/fodte-og-dode/statistikk/fodte"
+ },
+ {
+  "iso3": "PER",
+  "country": "Peru",
+  "tfr": 1.7,
+  "year": 2025,
+  "note": "survey (ENDES 2025); 1 decimal",
+  "source": "INEI ENDES 2025",
+  "url": "https://www.gob.pe/institucion/inei/noticias/1408994-endes-2025-tasa-global-de-fecundidad-fue-de-1-7-hijos-por-mujer"
+ },
+ {
+  "iso3": "PHL",
+  "country": "Philippines",
+  "tfr": 1.7,
+  "year": 2025,
+  "note": "survey (2025 NDHS)",
+  "source": "PSA 2025 National Demographic and Health Survey",
+  "url": "https://www.pna.gov.ph/index.php/articles/1272079"
+ },
+ {
+  "iso3": "POL",
+  "country": "Poland",
+  "tfr": 1.068,
+  "year": 2025,
+  "note": "",
+  "source": "Statistics Poland (GUS), Polska w liczbach 2026",
+  "url": "https://ukiel.info/wspolczynnik-dzietnosci-w-polsce-spadl-do-nowego-minimum-w-2025-r/49393/"
+ },
+ {
+  "iso3": "PRT",
+  "country": "Portugal",
+  "tfr": 1.41,
+  "year": 2024,
+  "note": "",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "PRI",
+  "country": "Puerto Rico",
+  "tfr": 0.87,
+  "year": 2024,
+  "note": "preliminary (Instituto de Estadísticas de Puerto Rico)",
+  "source": "Puerto Rico Institute of Statistics (via Primera Hora)",
+  "url": "https://www.primerahora.com/noticias/puerto-rico/notas/en-descenso-los-embarazos-en-puerto-rico/"
+ },
+ {
+  "iso3": "ROU",
+  "country": "Romania",
+  "tfr": 1.39,
+  "year": 2024,
+  "note": "Eurostat estimate",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "RUS",
+  "country": "Russia",
+  "tfr": 1.374,
+  "year": 2025,
+  "note": "preliminary (Rosstat operational data)",
+  "source": "Rosstat (via Kommersant)",
+  "url": "https://www.kommersant.ru/doc/8365181"
+ },
+ {
+  "iso3": "RWA",
+  "country": "Rwanda",
+  "tfr": 3.7,
+  "year": 2025,
+  "note": "survey (RW2025DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2025)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=RW2025DHS&breakdown=national"
+ },
+ {
+  "iso3": "SAU",
+  "country": "Saudi Arabia",
+  "tfr": 2.0,
+  "year": 2024,
+  "note": "total resident population (Saudi nationals 2.7; non-Saudi 0.8)",
+  "source": "GASTAT Population Estimates 2024",
+  "url": "https://www.stats.gov.sa/documents/20117/2435273/Population+Estimates+Statistics+2024+EN.pdf/9b71e303-5fd9-19cb-9913-850a9d521639"
+ },
+ {
+  "iso3": "SEN",
+  "country": "Senegal",
+  "tfr": 4,
+  "year": 2023,
+  "note": "survey (SN2023DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2023)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=SN2023DHS&breakdown=national"
+ },
+ {
+  "iso3": "SRB",
+  "country": "Serbia",
+  "tfr": 1.62,
+  "year": 2025,
+  "note": "",
+  "source": "Statistical Office of the Republic of Serbia (via Politika)",
+  "url": "https://www.politika.rs/sr/clanak/768421/u-2025-u-srbiji-rodeno-najmanje-beba-za-poslednjih-sto-godina"
+ },
+ {
+  "iso3": "SGP",
+  "country": "Singapore",
+  "tfr": 0.87,
+  "year": 2025,
+  "note": "resident TFR",
+  "source": "Singapore Department of Statistics",
+  "url": "https://www.singstat.gov.sg/news/total-fertility-rate-2025"
+ },
+ {
+  "iso3": "SVK",
+  "country": "Slovakia",
+  "tfr": 1.36,
+  "year": 2025,
+  "note": "ŠÚ SR data as cited in Ministry of Labour report",
+  "source": "Statistical Office of the Slovak Republic (via MPSVR SR social situation report 2025)",
+  "url": "https://www.employment.gov.sk/files/slovensky/ministerstvo/analyticke-centrum/2026/sprava_o_social_situacii_obyvatelstva_sr_2025_pub.pdf"
+ },
+ {
+  "iso3": "SVN",
+  "country": "Slovenia",
+  "tfr": 1.54,
+  "year": 2025,
+  "note": "",
+  "source": "Statistical Office of Slovenia (SURS) 'Rojeni, 2025'",
+  "url": "https://www.stat.si/StatWeb/News/Index/14433"
+ },
+ {
+  "iso3": "ZAF",
+  "country": "South Africa",
+  "tfr": 2.21,
+  "year": 2025,
+  "note": "model-based estimate (Stats SA mid-year population estimates)",
+  "source": "Stats SA Mid-year population estimates 2025",
+  "url": "https://www.statssa.gov.za/?p=18613"
+ },
+ {
+  "iso3": "KOR",
+  "country": "South Korea",
+  "tfr": 0.8,
+  "year": 2025,
+  "note": "provisional",
+  "source": "Statistics Korea (Ministry of Data and Statistics)",
+  "url": "https://mods.go.kr/board.es?act=view&bid=11773&list_no=444910&mid=a20108010000"
+ },
+ {
+  "iso3": "ESP",
+  "country": "Spain",
+  "tfr": 1.1,
+  "year": 2024,
+  "note": "",
+  "source": "Eurostat demo_find (TOTFERRT)",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_find?indic_de=TOTFERRT&format=JSON&sinceTimePeriod=2022"
+ },
+ {
+  "iso3": "SWE",
+  "country": "Sweden",
+  "tfr": 1.42,
+  "year": 2025,
+  "note": "1.423",
+  "source": "Statistics Sweden (SCB)",
+  "url": "https://www.scb.se/pressmeddelande/fortsatt-lagt-barnafodande/"
+ },
+ {
+  "iso3": "CHE",
+  "country": "Switzerland",
+  "tfr": 1.28,
+  "year": 2025,
+  "note": "provisional",
+  "source": "Swiss FSO (BFS) press release",
+  "url": "https://www.swiss-press.com/2025-gingen-die-geburten-in-der-schweiz-zurueck/1827709"
+ },
+ {
+  "iso3": "TWN",
+  "country": "Taiwan",
+  "tfr": 0.695,
+  "year": 2025,
+  "note": "as reported in press citing Ministry of the Interior",
+  "source": "Ministry of the Interior (via Liberty Times)",
+  "url": "https://ec.ltn.com.tw/article/breakingnews/5393039"
+ },
+ {
+  "iso3": "TJK",
+  "country": "Tajikistan",
+  "tfr": 3.5,
+  "year": 2023,
+  "note": "survey (TJ2023DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2023)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=TJ2023DHS&breakdown=national"
+ },
+ {
+  "iso3": "TUN",
+  "country": "Tunisia",
+  "tfr": 1.54,
+  "year": 2024,
+  "note": "INS (Flash projection de la population, May 2026, RGPH 2024 based)",
+  "source": "INS Tunisia (via La Presse de Tunisie)",
+  "url": "https://www.lapresse.tn/2026/06/05/demographie-en-tunisie-pourquoi-la-croissance-est-au-plus-bas-selon-lins/"
+ },
+ {
+  "iso3": "TUR",
+  "country": "Türkiye",
+  "tfr": 1.42,
+  "year": 2025,
+  "note": "",
+  "source": "TurkStat Birth Statistics 2025 (via Daily Sabah)",
+  "url": "https://www.dailysabah.com/turkiye/turkiyes-fertility-rate-drops-to-142-as-births-keep-falling/news/amp"
+ },
+ {
+  "iso3": "UGA",
+  "country": "Uganda",
+  "tfr": 4.6,
+  "year": 2024,
+  "note": "survey (UG2024MIS, MIS; TFR for ~3 years before survey)",
+  "source": "DHS Program (MIS 2024)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=UG2024MIS&breakdown=national"
+ },
+ {
+  "iso3": "GBR",
+  "country": "United Kingdom",
+  "tfr": 1.39,
+  "year": 2025,
+  "note": "England and Wales only (ONS); Scotland 2025 = 1.23 (NRS); no UK-wide 2025 figure found",
+  "source": "ONS Births in England and Wales: 2025",
+  "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2025finalrates"
+ },
+ {
+  "iso3": "USA",
+  "country": "United States",
+  "tfr": 1.57,
+  "year": 2025,
+  "note": "provisional; figure as cited by Statistics Canada from NCHS provisional 2025 data (NCHS final 2024 = 1.5995)",
+  "source": "Statistics Canada citing CDC NCHS",
+  "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260923/dq260923e-eng.htm"
+ },
+ {
+  "iso3": "VNM",
+  "country": "Vietnam",
+  "tfr": 1.93,
+  "year": 2025,
+  "note": "survey-based (Population and Family Planning Survey, 1 April 2025)",
+  "source": "Vietnam Statistics Office / Population Dept., MoH (via VnExpress)",
+  "url": "https://vnexpress.net/muc-sinh-nam-2025-cua-viet-nam-tang-nhe-4995025.html"
+ },
+ {
+  "iso3": "ZMB",
+  "country": "Zambia",
+  "tfr": 4,
+  "year": 2024,
+  "note": "survey (ZM2024DHS, DHS; TFR for ~3 years before survey)",
+  "source": "DHS Program (DHS 2024)",
+  "url": "https://api.dhsprogram.com/rest/dhs/data?indicatorIds=FE_FRTR_W_TFR&surveyIds=ZM2024DHS&breakdown=national"
+ }
+]

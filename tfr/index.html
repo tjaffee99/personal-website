@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fertility Explorer</title>
+<meta name="description" content="Interactive map of total fertility rates worldwide, with population projections you can steer by changing future fertility.">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f8f8f8;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.10);
+  --accent: #007BFF;
+  --male: #2a78d6;
+  --female: #eb6834;
+  --scenario: #2a78d6;
+  --births: #2a78d6;
+  --deaths: #eb6834;
+  --un: #898781;
+  --band: rgba(137, 135, 129, 0.16);
+  --age1: #86b6ef;
+  --age2: #2a78d6;
+  --age3: #104281;
+  --mid: #e9e7e1;
+  --nodata: #d6d4cc;
+  --stroke: #fcfcfb;
+  --hover: rgba(11, 11, 11, 0.05);
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #5aa2ff;
+    --male: #3987e5;
+    --female: #d95926;
+    --scenario: #3987e5;
+    --births: #3987e5;
+    --deaths: #d95926;
+    --band: rgba(195, 194, 183, 0.14);
+    --age1: #184f95;
+    --age2: #3987e5;
+    --age3: #9ec5f4;
+    --mid: #3a3a37;
+    --nodata: #2a2a28;
+    --stroke: #1a1a19;
+    --hover: rgba(255, 255, 255, 0.06);
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255, 255, 255, 0.10); --accent: #5aa2ff;
+  --male: #3987e5; --female: #d95926; --scenario: #3987e5; --births: #3987e5; --deaths: #d95926;
+  --band: rgba(195, 194, 183, 0.14); --age1: #184f95; --age2: #3987e5; --age3: #9ec5f4;
+  --mid: #3a3a37; --nodata: #2a2a28; --stroke: #1a1a19; --hover: rgba(255, 255, 255, 0.06); --shadow: none;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 24px 16px 64px; }
+header.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-bottom: 4px; }
+header.top h1 { font-size: 1.75rem; margin: 0; letter-spacing: -0.01em; }
+header.top .back { font-size: .9rem; }
+.lede { color: var(--ink-2); max-width: 760px; margin: 4px 0 18px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  min-width: 0;
+}
+.card h2 { font-size: 1rem; margin: 0 0 2px; }
+.card .sub { color: var(--muted); font-size: .82rem; margin: 0 0 8px; }
+
+/* map */
+.map-head { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.map-title { font-weight: 600; }
+.map-title .when { color: var(--ink-2); font-weight: 400; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.seg button { border: 0; background: transparent; color: var(--ink-2); font: inherit; font-size: .85rem; padding: 5px 10px; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--border); }
+.seg button[aria-pressed="true"] { background: var(--hover); color: var(--ink); font-weight: 600; }
+.btn { border: 1px solid var(--border); background: transparent; color: var(--ink); font: inherit; font-size: .85rem; padding: 5px 10px; border-radius: 8px; cursor: pointer; }
+.btn:hover, .seg button:hover { background: var(--hover); }
+.btn[aria-pressed="true"] { background: var(--hover); font-weight: 600; }
+input[type="search"] {
+  font: inherit; font-size: .9rem; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--ink); width: 220px; max-width: 100%;
+}
+#map { position: relative; width: 100%; aspect-ratio: 2 / 1; min-height: 240px; max-height: 620px; }
+#map svg { display: block; width: 100%; height: 100%; cursor: grab; }
+#map svg:active { cursor: grabbing; }
+#map path.country { stroke: var(--stroke); stroke-width: .4; vector-effect: non-scaling-stroke; cursor: pointer; }
+#map path.country:hover { stroke: var(--ink); stroke-width: 1; }
+#map path.country.selected { stroke: var(--ink); stroke-width: 1.8; }
+#map path.sphere { fill: none; stroke: var(--grid); }
+.zoom-ctl { position: absolute; right: 8px; bottom: 8px; display: flex; flex-direction: column; gap: 4px; }
+.zoom-ctl button { width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--ink); font-size: 16px; cursor: pointer; }
+.map-foot { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; margin-top: 8px; }
+.legend { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px 2px; font-size: .75rem; color: var(--ink-2); flex: 0 1 auto; min-width: 0; }
+.legend .bin { display: flex; flex-direction: column; align-items: center; gap: 3px; width: 34px; flex: 0 1 34px; min-width: 24px; }
+.legend .sw { width: 100%; height: 10px; border-radius: 2px; }
+.legend .bin:first-child .sw { border-radius: 4px 2px 2px 4px; }
+.legend .bin:last-child .sw { border-radius: 2px 4px 4px 2px; }
+.legend .cap { font-size: .72rem; color: var(--muted); margin-left: 8px; align-self: center; line-height: 1.25; }
+.year-ctl { display: flex; align-items: center; gap: 8px; flex: 1 1 280px; max-width: 520px; min-width: 0; }
+.year-ctl input { flex: 1; }
+.year-ctl .yr { font-variant-numeric: tabular-nums; min-width: 3.2em; font-weight: 600; }
+.regions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.regions .btn { font-size: .8rem; padding: 3px 9px; }
+
+/* table view */
+#table-view { display: none; max-height: 540px; overflow: auto; }
+#table-view table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+#table-view th, #table-view td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--grid); }
+#table-view th { position: sticky; top: 0; background: var(--surface); cursor: pointer; user-select: none; color: var(--ink-2); font-weight: 600; }
+#table-view td.num, #table-view th.num { text-align: right; font-variant-numeric: tabular-nums; }
+#table-view tr { cursor: pointer; }
+#table-view tbody tr:hover { background: var(--hover); }
+#table-view .chip { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+/* country panel */
+#panel { margin-top: 20px; }
+.panel-head { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; margin-bottom: 12px; }
+.panel-head h2 { font-size: 1.6rem; margin: 0; letter-spacing: -0.01em; }
+.panel-head .facts { color: var(--ink-2); font-size: .9rem; }
+.panel-head .facts b { color: var(--ink); }
+.layout { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 900px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+.controls { position: sticky; top: 12px; }
+@media (max-width: 900px) { .controls { position: static; } }
+.ctl { margin: 14px 0; }
+.ctl:first-of-type { margin-top: 6px; }
+.ctl label.lbl { display: flex; justify-content: space-between; align-items: baseline; font-size: .85rem; color: var(--ink-2); margin-bottom: 4px; }
+.ctl label.lbl output { color: var(--ink); font-weight: 650; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.ctl input[type="range"] { width: 100%; accent-color: var(--scenario); }
+.ctl .hint { font-size: .75rem; color: var(--muted); margin-top: 2px; }
+.ctl .seg { display: flex; }
+.ctl .seg button { flex: 1; padding: 6px 4px; font-size: .8rem; white-space: nowrap; }
+.ctl.disabled { opacity: .45; }
+.check { display: flex; gap: 8px; align-items: flex-start; font-size: .85rem; color: var(--ink-2); }
+.check input { margin-top: 3px; accent-color: var(--scenario); }
+.presets { display: flex; flex-wrap: wrap; gap: 6px; }
+.presets .btn { font-size: .78rem; padding: 3px 8px; }
+hr.sep { border: 0; border-top: 1px solid var(--grid); margin: 14px 0; }
+
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+@media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tile { padding: 12px 14px; }
+.tile .k { font-size: .75rem; color: var(--ink-2); }
+.tile .v { font-size: 1.5rem; font-weight: 650; letter-spacing: -0.01em; margin-top: 2px; line-height: 1.15; }
+.tile .d { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+.charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.charts .wide { grid-column: 1 / -1; }
+@media (max-width: 760px) { .charts { grid-template-columns: minmax(0, 1fr); } }
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; overflow: visible; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .78rem; color: var(--ink-2); margin: 2px 0 6px; min-height: 18px; }
+.chart-legend .it { display: inline-flex; align-items: center; gap: 6px; }
+.chart-legend .ln { width: 16px; height: 0; border-top: 2px solid; }
+.chart-legend .ln.dash { border-top-style: dashed; }
+.chart-legend .bx { width: 10px; height: 10px; border-radius: 2px; }
+.pyr-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; align-items: center; }
+.pyr-year { display: flex; align-items: center; gap: 10px; margin: 8px 0 4px; }
+.pyr-year input { flex: 1; accent-color: var(--ink-2); }
+.pyr-year .yr { font-size: 1.4rem; font-weight: 650; font-variant-numeric: tabular-nums; min-width: 2.6em; }
+select { font: inherit; font-size: .85rem; padding: 4px 6px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--ink); }
+
+.axis text { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.axis path, .axis line { stroke: var(--axis); }
+.grid line { stroke: var(--grid); }
+.grid path { display: none; }
+.lbl-direct { font-size: 11px; fill: var(--ink-2); }
+.annot { font-size: 11px; fill: var(--muted); }
+
+.tip {
+  position: fixed; pointer-events: none; z-index: 20; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: .8rem; line-height: 1.35;
+  box-shadow: 0 4px 18px rgba(0,0,0,.16); max-width: 280px; opacity: 0; transition: opacity .08s;
+}
+.tip .t { font-weight: 650; margin-bottom: 2px; }
+.tip .r { display: flex; justify-content: space-between; gap: 14px; font-variant-numeric: tabular-nums; }
+.tip .r span:first-child { color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; }
+.tip .m { color: var(--muted); font-size: .74rem; margin-top: 3px; }
+.tip i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; }
+
+.about { margin-top: 28px; color: var(--ink-2); font-size: .88rem; max-width: 860px; }
+.about h2 { color: var(--ink); font-size: 1.05rem; margin: 18px 0 4px; }
+.about p, .about li { line-height: 1.55; }
+.loading { color: var(--muted); padding: 40px 0; text-align: center; }
+.handle { cursor: grab; }
+.handle:active { cursor: grabbing; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>Fertility Explorer</h1>
+    <a class="back" href="../index.html">← theojaffee.com</a>
+  </header>
+  <p class="lede">Total fertility rate (TFR) is the number of children a woman would have at current age-specific birth rates. About 2.1 keeps a population stable without migration. Click any country to see its population pyramid and where it's headed, then change future fertility to see what happens.</p>
+
+  <section class="card" aria-label="World map of fertility">
+    <div class="map-head">
+      <div class="map-title">Total fertility rate <span class="when" id="map-when"></span></div>
+      <div class="toolbar">
+        <input type="search" id="search" list="loc-list" placeholder="Find a country…" aria-label="Find a country">
+        <datalist id="loc-list"></datalist>
+        <div class="seg" role="group" aria-label="View">
+          <button type="button" id="view-map" aria-pressed="true">Map</button>
+          <button type="button" id="view-table" aria-pressed="false">Table</button>
+        </div>
+      </div>
+    </div>
+    <div id="map"><div class="loading">Loading map…</div>
+      <div class="zoom-ctl"><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">−</button></div>
+    </div>
+    <div id="table-view"></div>
+    <div class="map-foot">
+      <div class="legend" id="legend"></div>
+      <div class="year-ctl">
+        <button type="button" class="btn" id="latest-btn" aria-pressed="true" title="Most recent officially reported TFR where available">Latest</button>
+        <button type="button" class="btn" id="map-play" aria-label="Play years">▶</button>
+        <input type="range" id="map-year" min="1950" max="2100" step="1" value="2026" aria-label="Map year">
+        <span class="yr" id="map-year-lbl">2026</span>
+      </div>
+    </div>
+    <div class="regions" id="regions"></div>
+  </section>
+
+  <section id="panel" aria-live="polite">
+    <div class="loading">Loading…</div>
+  </section>
+
+  <section class="about">
+    <h2>About the data &amp; model</h2>
+    <p><b>Data.</b> Population by single year of age and sex, life tables, age-specific fertility, migration and all historical series come from the <a href="https://population.un.org/wpp/">UN World Population Prospects 2024</a> (the latest revision; estimates through 2023, projections after). "Latest" TFR values come from national statistics offices, Eurostat and recent surveys where a 2024 or 2025 figure has been published; elsewhere the map falls back to the UN's estimate for 2026. Hover a country to see which source it uses.</p>
+    <p><b>Model.</b> Your scenario is a standard cohort-component projection run in your browser: single-year ages 0–100+, annual steps from mid-2026 to 2100. Each year people age one year and die according to the UN's projected life tables, births come from your TFR applied to the UN's projected age pattern of childbearing, and migrants are added by age and sex following the UN's projected migration. With the UN fertility path selected it reproduces the UN medium variant to within about 1% for most countries by 2100.</p>
+    <p><b>Caveats.</b> Projections are scenarios, not forecasts. Migration is held to the UN's assumptions (scaled by the slider) and doesn't respond to population pressure. Regions use the UN's regional aggregates. Very small territories can deviate more.</p>
+  </section>
+</div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script src="projection.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
