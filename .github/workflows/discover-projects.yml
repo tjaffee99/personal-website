@@ -1,12 +1,17 @@
 name: Discover new projects
 
-# Looks for new *.theojaffee.net subdomains, adds them to projects.json, and
-# republishes projects.theojaffee.net.
+# Looks for new *.theojaffee.net subdomains, adds them to projects.json with a
+# thumbnail, and republishes projects.theojaffee.net.
 
 on:
   schedule:
     - cron: '23 */6 * * *'
   workflow_dispatch:
+    inputs:
+      recapture:
+        description: Retake every thumbnail
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -19,7 +24,7 @@ concurrency:
 jobs:
   discover:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
@@ -31,13 +36,36 @@ jobs:
         id: discover
         run: node scripts/discover-projects.mjs
 
+      - name: Find projects that need thumbnails
+        id: pending
+        run: node scripts/capture-previews.mjs --list ${{ inputs.recapture && '--all' || '' }}
+
+      - name: Install Playwright
+        if: steps.pending.outputs.count != '0'
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      # A failed screenshot shouldn't hold back the new entry; the page shows a
+      # blank thumbnail and the next run tries again.
+      - name: Take screenshots
+        if: steps.pending.outputs.count != '0'
+        continue-on-error: true
+        run: node scripts/capture-previews.mjs ${{ inputs.recapture && '--all' || '' }}
+
       - name: Commit changes
         id: commit
-        if: steps.discover.outputs.added != '0'
         env:
           MESSAGE: ${{ steps.discover.outputs.message }}
         run: |
-          git add projects.json
+          git add projects.json previews
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+            exit 0
+          fi
+          if [ "${{ steps.discover.outputs.added }}" = "0" ]; then
+            MESSAGE="Update project thumbnails"
+          fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898299+github-actions[bot]@users.noreply.github.com'
           git commit -m "$MESSAGE"

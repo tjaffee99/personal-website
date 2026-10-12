@@ -19,3 +19,12 @@ export function hostOf(url) {
   return new URL(url).hostname.toLowerCase();
 }
 
+
+export const PREVIEW_DIR = 'previews';
+
+// "weather.theojaffee.net" -> "weather"; anything off-domain keeps its full host.
+export function slugOf(host, domain) {
+  const suffix = '.' + domain;
+  const base = host.endsWith(suffix) ? host.slice(0, -suffix.length) : host;
+  return base.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+}

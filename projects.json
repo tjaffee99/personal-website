@@ -13,38 +13,44 @@
       "url": "https://weather.theojaffee.net/",
       "name": "Weather Atlas",
       "description": "Live global weather and a historical climate finder: discover where and when the weather matches what you like.",
-      "launched": "2026-10-11"
+      "launched": "2026-10-11",
+      "image": "previews/weather.jpg"
     },
     {
       "url": "https://tfr.theojaffee.net/",
       "name": "Fertility Explorer",
       "description": "Total fertility rates worldwide, with population projections you can steer by changing future fertility.",
-      "launched": "2026-10-05"
+      "launched": "2026-10-05",
+      "image": "previews/tfr.jpg"
     },
     {
       "url": "https://housing.theojaffee.net/",
       "name": "US Housing Prices, Dot by Dot",
       "description": "Every owner-occupied and rented home in America on one map, colored by home value or rent.",
       "launched": "2026-10-04",
-      "hidden": true
+      "hidden": true,
+      "image": "previews/housing.jpg"
     },
     {
       "url": "https://trains.theojaffee.net/",
       "name": "Rail Atlas",
       "description": "Every passenger rail line in the world, from high-speed rail to metro and trams.",
-      "launched": "2026-09-28"
+      "launched": "2026-09-28",
+      "image": "previews/trains.jpg"
     },
     {
       "url": "https://capital.theojaffee.net/",
       "name": "Global Capital Atlas",
       "description": "Headquarters of every public and private company valued above $10 billion.",
-      "launched": "2026-08-26"
+      "launched": "2026-08-26",
+      "image": "previews/capital.jpg"
     },
     {
       "url": "https://congress.theojaffee.net/",
       "name": "American Atlas",
       "description": "The House, Senate, executive branch, Supreme Court and congressional leadership on any date since July 4, 1776.",
-      "launched": "2026-07-28"
+      "launched": "2026-07-28",
+      "image": "previews/congress.jpg"
     }
   ]
 }
