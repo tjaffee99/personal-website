@@ -1,63 +1,51 @@
 # projects.theojaffee.net
 
-An index of the things I've built, each living on its own subdomain of theojaffee.net.
+A list of the things I've built, each living on its own subdomain of theojaffee.net.
 It's a static GitHub Pages site that updates itself.
 
 ## How it works
 
-- `index.html` + `assets/` render the page from **`projects.json`**, the single source of truth.
-- `.github/workflows/discover-projects.yml` runs every six hours (and on demand from the Actions tab):
-  1. `scripts/discover-projects.mjs` lists every `*.theojaffee.net` hostname that has ever had an
-     HTTPS certificate, from the public certificate-transparency logs (crt.sh and CertSpotter). This
-     finds new projects no matter where they're hosted: GitHub Pages, ChatGPT sites, anything.
-  2. Any hostname that isn't already listed or ignored, and that serves a real page, gets added with
-     the site's own title and description (`og:site_name` / `og:title` / `<title>`, then
-     `og:description` / `description`). Its launch date is the date of its first certificate.
-  3. `scripts/capture-previews.mjs` screenshots new projects into `previews/` with Playwright, in light
-     mode and (if the site has one) dark mode.
-  4. The workflow commits the changes and asks GitHub Pages to rebuild.
+- `index.html` renders the list from **`projects.json`**, newest first. Links open in a new tab.
+- `.github/workflows/discover-projects.yml` runs every six hours (and on demand from the Actions tab).
+  It runs `scripts/discover-projects.mjs`, which lists every `*.theojaffee.net` hostname that has had an
+  HTTPS certificate, using the public certificate-transparency logs (crt.sh and CertSpotter). Any
+  hostname that isn't already in `projects.json` or `ignore`, and that serves a real page, gets added
+  with the site's own title and description. Its date is the date of its first certificate.
 
-Existing entries are never overwritten, so feel free to edit names, descriptions and tags by hand.
+Existing entries are never overwritten, so edit names and descriptions by hand freely.
 
 ## projects.json
 
 ```jsonc
 {
   "domain": "theojaffee.net",
-  "ignore": ["www.theojaffee.net", "*.staging.theojaffee.net"], // never auto-add these
+  "ignore": ["www.theojaffee.net"],      // never auto-add these
   "projects": [
     {
       "url": "https://weather.theojaffee.net/",
       "name": "Weather Atlas",
-      "description": "One or two sentences.",
-      "tags": ["Climate"],            // up to 3 shown
-      "launched": "2026-10-11",       // sets the order and the plate number
-      "image": "previews/weather.jpg",
-      "imageDark": "previews/weather-dark.jpg", // optional
-      "hidden": true                  // optional: keep it listed but off the page
+      "description": "One sentence.",
+      "launched": "2026-10-11",          // sets the order
+      "hidden": true                     // optional: keep it off the page for now
     }
   ]
 }
 ```
 
-To remove an auto-added project, delete it **and** add its hostname to `ignore`, or set `"hidden": true`,
-otherwise the next run will add it again.
+To drop a project for good, delete it and add its hostname to `ignore`; otherwise the next run adds it
+back. To hold one back until it's ready, set `"hidden": true`, and remove that line to publish it.
 
 ## Working locally
 
 ```sh
-python3 -m http.server 8000              # then open http://localhost:8000
-node scripts/discover-projects.mjs --dry-run
-
-npm install --no-save playwright && npx playwright install chromium
-node scripts/capture-previews.mjs        # screenshots for projects that lack one
-node scripts/capture-previews.mjs --all  # retake every screenshot
+python3 -m http.server 8000                    # then open http://localhost:8000
+node scripts/discover-projects.mjs --dry-run   # see what the next run would add
 ```
 
 ## Setup
 
 - DNS: `projects` CNAME → `tjaffee99.github.io`.
-- Repo settings → Pages: deploy from the `main` branch, root folder; custom domain comes from `CNAME`.
+- Repo settings → Pages: deploy from the `main` branch, root folder; the custom domain comes from `CNAME`.
 - GitHub disables scheduled workflows in repos with no activity for 60 days. If that happens, re-enable
   "Discover new projects" from the Actions tab.
 

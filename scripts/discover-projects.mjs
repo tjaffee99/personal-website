@@ -177,7 +177,7 @@ for (const host of candidates) {
     continue;
   }
   console.log(`new  ${host}: ${meta.name}`);
-  added.push({ url: `https://${host}/`, name: meta.name, description: meta.description, tags: [], launched: seen.get(host) });
+  added.push({ url: `https://${host}/`, name: meta.name, description: meta.description, launched: seen.get(host) });
 }
 
 if (added.length && !dryRun) {
