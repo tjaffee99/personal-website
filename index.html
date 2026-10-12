@@ -3,30 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theo's Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Projects · Theo Jaffee</title>
+    <meta name="description" content="An atlas of interactive maps and data explorers built by Theo Jaffee, each living on its own subdomain of theojaffee.net.">
+    <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1012" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="https://projects.theojaffee.net/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://projects.theojaffee.net/">
+    <meta property="og:title" content="Projects · Theo Jaffee">
+    <meta property="og:description" content="An atlas of interactive maps and data explorers, each living on its own subdomain of theojaffee.net.">
+    <meta property="og:image" content="https://projects.theojaffee.net/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@theojaffee">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316171a'/%3E%3Cg fill='none' stroke='%23ff7a4d' stroke-width='3'%3E%3Cpath d='M12 40c6-14 16-22 26-20s14 12 10 20-18 10-26 6'/%3E%3Cpath d='M22 37c4-7 9-10 14-9s7 6 5 10-9 5-14 3' opacity='.7'/%3E%3C/g%3E%3Ccircle cx='34' cy='34' r='3' fill='%23ff7a4d'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="assets/projects.css">
+    <script type="module" src="assets/projects.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Theo Jaffee</h1>
-        </header>
-        <main>
-            <p>I host the <a href="https://www.theojaffee.com/s/theo-jaffee-podcast">Theo Jaffee Podcast</a>, where I have deep conversations with brilliant people with the support of <a href="https://www.mercatus.org/emergent-ventures">Emergent Ventures</a>. I post on <a href="https://x.com/theojaffee">X/Twitter</a> and write longform on <a href="https://www.theojaffee.com/s/writings">Substack</a>.</p>
-            <p>I'm 19 years old and grew up in Boca Raton, Florida. I'm an incoming third-year computer science major and economics minor at the University of Florida.</p>
-            <p>I love to read, work out, cook, travel, and learn about the world. I'm interested in a lot of things, including but not limited to computers, AI, business and investing, startups, history, geography, economics, philosophy, politics, psychology, science, math, physics, architecture, engineering, and design.</p>
-            <p>This summer, I'm in San Francisco, California. If you want to hang out, feel free to DM me: @theojaffee on Twitter or Instagram!</p>
-            <nav>
-                <ul>
-                    <li><a href="https://www.theojaffee.com/s/theo-jaffee-podcast">Podcast</a></li>
-                    <li><a href="https://www.theojaffee.com/s/writings">Writings</a></li>
-                    <li><a href="books.html">Books</a></li>
-                    <li><a href="links.html">Links</a></li>
-                    <li><a href="travel.html">Travel</a></li>
-                    <li><a href="sfmap.html">SF Map</a></li>
-                </ul>
-            </nav>
-        </main>
-    </div>
+    <header class="hero">
+        <canvas class="contours" aria-hidden="true"></canvas>
+        <div class="wrap">
+            <div class="topbar">
+                <a class="wordmark" href="https://theojaffee.net">Theo Jaffee</a>
+                <span class="coords" aria-hidden="true">37.7749° N · 122.4194° W</span>
+                <nav aria-label="Elsewhere">
+                    <a href="https://theojaffee.net">Home</a>
+                    <a href="https://x.com/theojaffee">X</a>
+                    <a href="https://theojaffee.com">Substack</a>
+                </nav>
+            </div>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Index of *.theojaffee.net</p>
+                    <h1>Projects</h1>
+                    <p class="subtitle">An atlas of things I&rsquo;ve built on the internet.</p>
+                    <p class="lede">Interactive maps and data explorers, each living on its own subdomain. This page keeps itself up to date: when I launch something new, it shows up here on its own.</p>
+                    <dl class="stats">
+                        <div><dt>Projects</dt><dd data-stat="count">&mdash;</dd></div>
+                        <div><dt>Since</dt><dd data-stat="since">&mdash;</dd></div>
+                        <div><dt>Latest</dt><dd data-stat="latest">&mdash;</dd></div>
+                    </dl>
+                </div>
+                <nav class="contents" aria-labelledby="contents-title">
+                    <p class="contents-title" id="contents-title">Contents</p>
+                    <ol class="toc" data-slot="toc"></ol>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <section class="featured" data-slot="featured" aria-label="Latest project"></section>
+        <ol class="plates" data-slot="plates" aria-label="All projects"></ol>
+        <p class="status" data-slot="status" hidden></p>
+        <noscript><p class="status">This index is drawn from <a href="projects.json">projects.json</a> and needs JavaScript to display.</p></noscript>
+    </main>
+
+    <footer class="colophon">
+        <div class="wrap">
+            <p class="eyebrow">How this page works</p>
+            <ol class="steps">
+                <li><span class="step-no">01</span><h3>Watch</h3><p>Every six hours, a GitHub Action reads public certificate-transparency logs for new subdomains of theojaffee.net.</p></li>
+                <li><span class="step-no">02</span><h3>Read</h3><p>When a new one is live, it pulls the site&rsquo;s title and description and takes a screenshot in light and dark mode.</p></li>
+                <li><span class="step-no">03</span><h3>Publish</h3><p>It commits the result to <a href="projects.json">projects.json</a>, and the new plate appears here.</p></li>
+            </ol>
+            <div class="footline">
+                <span>&copy; <span data-stat="year">2026</span> Theo Jaffee</span>
+                <span><a href="https://theojaffee.net">theojaffee.net</a> · <a href="https://x.com/theojaffee">X</a> · <a href="https://github.com/tjaffee99/personal-website">Source</a></span>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

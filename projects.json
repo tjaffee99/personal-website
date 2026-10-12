@@ -1,0 +1,90 @@
+{
+  "domain": "theojaffee.net",
+  "ignore": [
+    "theojaffee.net",
+    "www.theojaffee.net",
+    "projects.theojaffee.net",
+    "rail.theojaffee.net",
+    "atlas.theojaffee.net"
+  ],
+  "projects": [
+    {
+      "url": "https://weather.theojaffee.net/",
+      "name": "Weather Atlas",
+      "description": "Live global weather and a historical climate finder: discover where and when the weather matches what you like.",
+      "tags": [
+        "Climate",
+        "Live data"
+      ],
+      "launched": "2026-10-11",
+      "image": "previews/weather.jpg"
+    },
+    {
+      "url": "https://tfr.theojaffee.net/",
+      "name": "Fertility Explorer",
+      "description": "Total fertility rates worldwide, with population projections you can steer by changing future fertility.",
+      "tags": [
+        "Demographics"
+      ],
+      "launched": "2026-10-05",
+      "image": "previews/tfr.jpg",
+      "imageDark": "previews/tfr-dark.jpg"
+    },
+    {
+      "url": "https://housing.theojaffee.net/",
+      "name": "US Housing Prices, Dot by Dot",
+      "description": "Every owner-occupied and rented home in America on one map, colored by home value or rent.",
+      "tags": [
+        "Housing",
+        "Census"
+      ],
+      "launched": "2026-10-04",
+      "image": "previews/housing.jpg"
+    },
+    {
+      "url": "https://trains.theojaffee.net/",
+      "name": "Rail Atlas",
+      "description": "Every passenger rail line in the world, from high-speed rail to metro and trams.",
+      "tags": [
+        "Transit",
+        "Global"
+      ],
+      "launched": "2026-09-28",
+      "image": "previews/trains.jpg",
+      "imageDark": "previews/trains-dark.jpg"
+    },
+    {
+      "url": "https://chinarail.theojaffee.net/",
+      "name": "China Rail Atlas",
+      "description": "Every high-speed, conventional, metro, light rail and tram line in China.",
+      "tags": [
+        "Transit",
+        "China"
+      ],
+      "launched": "2026-09-27",
+      "image": "previews/chinarail.jpg",
+      "imageDark": "previews/chinarail-dark.jpg"
+    },
+    {
+      "url": "https://capital.theojaffee.net/",
+      "name": "Global Capital Atlas",
+      "description": "Headquarters of every public and private company valued above $10 billion.",
+      "tags": [
+        "Business"
+      ],
+      "launched": "2026-08-26",
+      "image": "previews/capital.jpg"
+    },
+    {
+      "url": "https://congress.theojaffee.net/",
+      "name": "American Atlas",
+      "description": "The House, Senate, executive branch, Supreme Court and congressional leadership on any date since July 4, 1776.",
+      "tags": [
+        "Government",
+        "History"
+      ],
+      "launched": "2026-07-28",
+      "image": "previews/congress.jpg"
+    }
+  ]
+}

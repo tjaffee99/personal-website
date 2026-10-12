@@ -1,0 +1,81 @@
+name: Discover new projects
+
+# Looks for new *.theojaffee.net subdomains, adds them to projects.json with a
+# screenshot, and republishes projects.theojaffee.net.
+
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      recapture:
+        description: Retake every screenshot
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: discover-projects
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Look for new subdomains
+        id: discover
+        run: node scripts/discover-projects.mjs
+
+      - name: Find projects that need screenshots
+        id: pending
+        run: node scripts/capture-previews.mjs --list ${{ inputs.recapture && '--all' || '' }}
+
+      - name: Install Playwright
+        if: steps.pending.outputs.count != '0'
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      # A failed screenshot shouldn't hold back the new entry; the page draws a
+      # placeholder and the next run tries again.
+      - name: Take screenshots
+        if: steps.pending.outputs.count != '0'
+        continue-on-error: true
+        run: node scripts/capture-previews.mjs ${{ inputs.recapture && '--all' || '' }}
+
+      - name: Commit changes
+        id: commit
+        env:
+          MESSAGE: ${{ steps.discover.outputs.message }}
+        run: |
+          git add projects.json previews
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+            exit 0
+          fi
+          if [ "${{ steps.discover.outputs.added }}" = "0" ]; then
+            MESSAGE="Update project screenshots"
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898299+github-actions[bot]@users.noreply.github.com'
+          git commit -m "$MESSAGE"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      # Pushes made with GITHUB_TOKEN may not trigger a Pages build on their own.
+      - name: Rebuild GitHub Pages
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${{ github.repository }}/pages/builds" || echo "::warning::Could not request a Pages build."
