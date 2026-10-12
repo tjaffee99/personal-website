@@ -58,3 +58,5 @@ node scripts/capture-previews.mjs --all        # retake every thumbnail
 
 The older pages from my previous personal site (`books.html`, `links.html`, `travel.html`, `sfmap.html`)
 are still in this repo.
+
+`flights/` is Flight Atlas, a globe of every passenger air route; see `flights/README.md`.
