@@ -10,6 +10,13 @@
   ],
   "projects": [
     {
+      "url": "https://flights.theojaffee.net/",
+      "name": "Flight Atlas",
+      "description": "Every passenger air route in the world, drawn by how many people fly it in a year.",
+      "launched": "2026-10-12",
+      "image": "previews/flights.jpg"
+    },
+    {
       "url": "https://weather.theojaffee.net/",
       "name": "Weather Atlas",
       "description": "Live global weather and a historical climate finder: discover where and when the weather matches what you like.",
